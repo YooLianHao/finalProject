@@ -22,7 +22,8 @@ if(isset($_POST['insert'])){
 	$userPhoneNumber=$_POST['userPhoneNumber'];
 	$userEmail=$_POST['userEmail'];
 
-	echo $sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
+	$sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
+	//echo $sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
 
 	$result = $conn->query($sql);
 }
