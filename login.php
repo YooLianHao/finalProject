@@ -81,7 +81,7 @@ $conn = new mysqli($servername, $username, $password,$database);
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
+      <!--/.login form -->
       <form action="../../index3.html" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="userName" placeholder="Username">
@@ -102,7 +102,8 @@ $conn = new mysqli($servername, $username, $password,$database);
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember" name="remember "<?php if(isset($_COOKIE["user"])) { ?> checked <?php } ?> /><!-- i have to modify this remember me, lot of error -->
+              <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["users"])) { ?> checked <?php } ?> />
+              <label for="remember">
                 Remember Me
               </label>
             </div>
