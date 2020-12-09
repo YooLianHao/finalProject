@@ -26,6 +26,7 @@ if(isset($_POST['insert'])){
 	//echo $sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
 
 	$result = $conn->query($sql);
+	
 }
 
 if(isset($_GET['id'])){
@@ -68,16 +69,19 @@ if(isset($_POST['update'])){
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 
-<div class="container">
+<div class="container " >
 
 
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">
+<div class="card bg-secondary text-white" style="max-width: 350px; margin:0 auto; background-image: url(images/background.jpg);
+		background-repeat: no-repeat;" >
+
+<article class="card-body mx-auto " style="max-width: 350px;">
+	<h4 class="card-title mt-3 text-center" >
 	<?php
 		if(isset($_GET['id'])){
 			echo "Update User";
 		}else{
+			//echo "<body style=background-color:powderblue;>";
 			echo "User Registration";
 		}	
 	?>
@@ -86,7 +90,7 @@ if(isset($_POST['update'])){
 	<p class="text-center">Get started with your free account</p>
 	
 	
-	<form name="userRegistration" action="userRegistration.php" method="POST">
+	<form name="userRegistration" action="userRegistration.php" method="POST" style = " bg-secondary;">
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -130,7 +134,7 @@ if(isset($_POST['update'])){
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input name="userRepeatPassword" class="form-control" placeholder="Repeat password" type="password">
+        <input name="userRepeatPassword" class="form-control" placeholder="Confirm Password" type="password">
     </div> <!-- form-group// --> 
 
     <div class="form-group">
@@ -147,7 +151,7 @@ if(isset($_POST['update'])){
 
     </div> <!-- form-group// -->
 
-    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+    <p class="text-center" style="color:black">Have an account? <a href="login.php" style="color: lightyellow;">Log In</a> </p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
@@ -161,4 +165,3 @@ if(isset($_POST['update'])){
 
 
 </article>
-
