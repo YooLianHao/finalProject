@@ -10,8 +10,8 @@ $conn = new mysqli($servername, $username, $password,$database);
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      $myusername = mysqli_real_escape_string($db,$_POST['userName']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['userPassword']); 
       
       $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
       $result = mysqli_query($db,$sql);
@@ -30,6 +30,26 @@ $conn = new mysqli($servername, $username, $password,$database);
       }else {
          $error = "Your Login Name or Password is invalid";
       }
+      //modify this area -Jay
+      $sql = "Select * from user where users_name = '" . $_POST["user"] . "'"; // still not sure since i dont have the database
+        if(!isset($_COOKIE["member_login"])) {
+            $sql .= " AND member_password = '" . md5($_POST[""]) . "'";
+	}
+        $result = mysqli_query($conn,$sql);
+	$user = mysqli_fetch_array($result);
+	if($user) {
+			$_SESSION["member_id"] = $user["member_id"];
+			
+			if(!empty($_POST["remember"])) {
+				setcookie ("member_login",$_POST["member_name"],time()+ (10 * 365 * 24 * 60 * 60));
+			} else {
+				if(isset($_COOKIE["member_login"])) {
+					setcookie ("member_login","");
+				}
+			}
+	} else {
+		$message = "Invalid Login";
+	}
    }
 ?>
 <!DOCTYPE html>
@@ -61,10 +81,10 @@ $conn = new mysqli($servername, $username, $password,$database);
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
-
+      <!--/.login form -->
       <form action="../../index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="userName" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -72,7 +92,7 @@ $conn = new mysqli($servername, $username, $password,$database);
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="userPassword"placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -82,7 +102,7 @@ $conn = new mysqli($servername, $username, $password,$database);
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <input type="checkbox" id="remember" name="remember" <?php if(isset($_COOKIE["users"])) { ?> checked <?php } ?> />
               <label for="remember">
                 Remember Me
               </label>
