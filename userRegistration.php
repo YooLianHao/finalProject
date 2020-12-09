@@ -151,7 +151,7 @@ if(isset($_POST['update'])){
 
     </div> <!-- form-group// -->
 
-    <p class="text-center">Have an account? <a href="login.php">Log In</a> </p>                                                                 
+    <p class="text-center" style="color:black">Have an account? <a href="login.php" style="color: lightyellow;">Log In</a> </p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
