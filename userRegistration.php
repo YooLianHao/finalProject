@@ -134,7 +134,7 @@ if(isset($_POST['update'])){
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input name="userRepeatPassword" class="form-control" placeholder="Repeat password" type="password">
+        <input name="userRepeatPassword" class="form-control" placeholder="Confirm Password" type="password">
     </div> <!-- form-group// --> 
 
     <div class="form-group">
@@ -165,4 +165,3 @@ if(isset($_POST['update'])){
 
 
 </article>
-
