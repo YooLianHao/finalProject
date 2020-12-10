@@ -1,13 +1,10 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
   <title>E-Voting System  | Admin</title>
-
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
@@ -33,7 +30,6 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
@@ -45,7 +41,6 @@
         </div>
       </div>
     </form>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
@@ -83,7 +78,6 @@
     </ul>
   </nav>
   <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -92,7 +86,6 @@
            style="opacity: .8">
       <span class="brand-text font-weight-light">EVoting System</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -104,7 +97,6 @@
           <a href="#" class="d-block" name=""></a>
         </div>
       </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -143,7 +135,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -163,7 +154,6 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -172,7 +162,6 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-
               <div class="info-box-content">
                 <span class="info-box-text"></span>
                 <span class="info-box-number">
@@ -188,7 +177,6 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
               <div class="info-box-content">
                 <span class="info-box-text"></span>
                 <span class="info-box-number"></span>
@@ -198,14 +186,11 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
-
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-poll"></i></span>
-
               <div class="info-box-content">
                 <span class="info-box-text"></span>
                 <span class="info-box-number"></span>
@@ -218,7 +203,6 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
               <div class="info-box-content">
                 <span class="info-box-text"> </span>
                 <span class="info-box-number"></span>
@@ -230,13 +214,11 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-
               <div class="col-md-6">
                 <!-- USERS LIST -->
                 <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Users</h3>
-
                     <div class="card-tools">
                       <span class="badge badge-danger"></span>
                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -271,7 +253,6 @@
              <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Recently Pool</h3>
-
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -318,7 +299,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2020-2021 <a href="">Southern University College</a>.</strong>
@@ -329,7 +309,6 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -339,10 +318,8 @@
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
-
 <!-- OPTIONAL SCRIPTS -->
 <script src="dist/js/demo.js"></script>
-
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
 <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
@@ -351,7 +328,6 @@
 <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-
 <!-- PAGE SCRIPTS -->
 <script src="dist/js/pages/dashboard2.js"></script>
 </body>
