@@ -85,7 +85,7 @@ $conn = new mysqli($servername, $username, $password,$database);
       <!--/.login form -->
       <form action="../../index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="userName" placeholder="Username">
+          <input type="text" class="form-control" name="userName" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
