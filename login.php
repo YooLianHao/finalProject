@@ -1,3 +1,4 @@
+  
 <?php
 $servername = "localhost";  //localost for local PC or use IP
 $username = "root";
