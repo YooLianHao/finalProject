@@ -1,4 +1,3 @@
-  
 <?php
 $servername = "localhost";  //localost for local PC or use IP
 $username = "root";
@@ -6,52 +5,46 @@ $password = "";
 $database = "e-voting";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password,$database);
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
-      $myusername = mysqli_real_escape_string($db,$_POST['userName']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['userPassword']); 
-      
-      $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
-      $result = mysqli_query($db,$sql);
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_POST['login'])){
+  $username = mysqli_real_escape_string($conn,$_POST['username']);
+  $password = mysqli_real_escape_string($conn,$_POST['password']);
+  
+  if($username !="" && $password !=""){
+      $sql = "select * from user where name='$username' and password='$password'";
+      $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
+
       $count = mysqli_num_rows($result);
+      if($count == 1){
+        
+        //('') after login show the login page
+          echo "<script>window.location.assign('');</script>";
+
+      }else{
       
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-         session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
+        echo '
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <script>
+        alert("Login Fail");
+        </script>
+        </head>
+        <body>
+        
+        </body>
+        </html>';
          
-         header("");
-      }else {
-         $error = "Your Login Name or Password is invalid";
       }
-      //modify this area -Jay
-      $sql = "Select * from user where users_name = '" . $_POST["user"] . "'"; // still not sure since i dont have the database
-        if(!isset($_COOKIE["member_login"])) {
-            $sql .= " AND member_password = '" . md5($_POST[""]) . "'";
-	}
-        $result = mysqli_query($conn,$sql);
-	$user = mysqli_fetch_array($result);
-	if($user) {
-			$_SESSION["member_id"] = $user["member_id"];
-			
-			if(!empty($_POST["remember"])) {
-				setcookie ("member_login",$_POST["member_name"],time()+ (10 * 365 * 24 * 60 * 60));
-			} else {
-				if(isset($_COOKIE["member_login"])) {
-					setcookie ("member_login","");
-				}
-			}
-	} else {
-		$message = "Invalid Login";
-	}
-   }
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,24 +69,24 @@ $conn = new mysqli($servername, $username, $password,$database);
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>E-Voting</b>System</a>
+    <a href=""><b>E-Voting</b>System</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
       <!--/.login form -->
-      <form action="../../index3.html" method="post">
+      <form action="login.php" method="POST">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="userName" placeholder="Username">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="userPassword"placeholder="Password">
+          <input type="password" class="form-control" name="password"placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -110,22 +103,23 @@ $conn = new mysqli($servername, $username, $password,$database);
             </div>
           </div>
           <!-- /.col -->
+
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
+          <?php
+		if(isset($_GET['id'])){
+			echo "";
+		}else{
+			echo '<button type="submit" class="btn btn-primary
+			 btn-block" name ="login"> Sign In </buton>';
+		}	
+	      ?>  
           </div>
+
           <!-- /.col -->
         </div>
       </form>
 
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
@@ -145,7 +139,7 @@ $conn = new mysqli($servername, $username, $password,$database);
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src=/dist/js/adminlte.min.js"></script>
+<script src=/dist/js/adminlte.min.js></script>
 
 </body>
 </html>
