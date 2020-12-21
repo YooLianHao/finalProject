@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 $servername = "localhost";  //localost for local PC or use IP
 $username = "root";
@@ -47,9 +46,6 @@ if(isset($_POST['login'])){
   }
 }
 ?>
-=======
-
->>>>>>> 790c29aea81b473449d28856cf0b750052baf79c
 <!DOCTYPE html>
 <html>
 <head>
