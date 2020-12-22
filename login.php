@@ -76,18 +76,9 @@ if(isset($_POST['login'])){
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
       <!--/.login form -->
-<<<<<<< HEAD
       <form action="login.php" method="POST">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="Username">
-=======
-      <form action="controller/loginProcess.php" method="post">
-      <?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
->>>>>>> 790c29aea81b473449d28856cf0b750052baf79c
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -95,11 +86,7 @@ if(isset($_POST['login'])){
           </div>
         </div>
         <div class="input-group mb-3">
-<<<<<<< HEAD
           <input type="password" class="form-control" name="password"placeholder="Password">
-=======
-          <input type="password" class="form-control" name="pass"placeholder="Password">
->>>>>>> 790c29aea81b473449d28856cf0b750052baf79c
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -118,7 +105,6 @@ if(isset($_POST['login'])){
           <!-- /.col -->
 
           <div class="col-4">
-<<<<<<< HEAD
 
           <?php
 		if(isset($_GET['id'])){
@@ -128,18 +114,11 @@ if(isset($_POST['login'])){
 			 btn-block" name ="login"> Sign In </buton>';
 		}	
 	      ?>  
-=======
-            <button type="submit" class="btn btn-primary btn-block" name = "submit" id="">Sign In</button>
->>>>>>> 790c29aea81b473449d28856cf0b750052baf79c
           </div>
 
           <!-- /.col -->
         </div>
       </form>
-<<<<<<< HEAD
-
-=======
->>>>>>> 790c29aea81b473449d28856cf0b750052baf79c
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
