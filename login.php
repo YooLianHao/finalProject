@@ -66,10 +66,11 @@ if(isset($_POST['login'])){
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="max-width: 350px; margin:0 auto; background-image: url(images/background4.jpg);
+		background-repeat: no-repeat;" >
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>E-Voting</b>System</a>
+    <a style="color: #E0FFFF; href=#"><b>E-Voting</b>System</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

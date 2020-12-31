@@ -72,7 +72,28 @@ if(isset($_POST['insert'])){
 }
 
 
+
 ?>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-color:#87CEFA ;
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -82,10 +103,13 @@ if(isset($_POST['insert'])){
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 
-<div class="container " >
+<div class="container " style= " background-color:#87CEFA ;background-size: cover;  background-position: center;
+  background-repeat: no-repeat;height: 100%;
+  margin: 0 auto; width:100%; "
+} >
 
 
-<div class="card bg-secondary text-white" style="max-width: 350px; margin:0 auto; background-image: url(images/background.jpg);
+<div class="card bg-secondary text-white" style="max-width: 350px; margin:0 auto; background-image: url(images/background1.jpg);
 		background-repeat: no-repeat;" >
 
 <article class="card-body mx-auto " style="max-width: 350px;">
@@ -164,7 +188,7 @@ if(isset($_POST['insert'])){
 
     </div> <!-- form-group// -->
 
-    <p class="text-center" style="color:black">Have an account? <a href="login.php" style="color: lightyellow;">Log In</a> </p>                                                                 
+    <p class="text-center" style="color:black">Have an account? <a href="login.php" style="color: #E0FFFF;">Log In</a> </p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
