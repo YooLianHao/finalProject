@@ -2,7 +2,7 @@
 $servername = "localhost";  //localost for local PC or use IP
 $username = "root";
 $password = "";
-$database = "e-voting";
+$database = "e_voting";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$database);
@@ -15,20 +15,17 @@ if ($conn->connect_error) {
 //if user click create button
 if(isset($_POST['insert'])){  
 
-	$id = mysqli_real_escape_string($conn,$_POST['userId']);
-	$name = mysqli_real_escape_string($conn,$_POST['userName']);
-	$contactNo = mysqli_real_escape_string($conn,$_POST['userPhoneNumber']);
-	$email = mysqli_real_escape_string($conn,$_POST['userEmail']);
-    $password = mysqli_real_escape_string($conn,$_POST['userPassword']);
+    $name = mysqli_real_escape_string($conn,$_POST['candidateName']);
+    $password = mysqli_real_escape_string($conn,$_POST['candidatePassword']);
     
-    if($id !="" && $name !="" && $contactNo !="" && $email !="" &&  $password !=""){
-        $sql = "select * from user where name='$name' and password='$password'";
+    if($name !="" && $password !=""){
+        $sql = "select * from candidate where name='$name' and password='$password'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
   
         $count = mysqli_num_rows($result);
         if($count == 1){	
-          
+             
             echo  '
             <!DOCTYPE html>
             <html>
@@ -44,17 +41,16 @@ if(isset($_POST['insert'])){
         }else{
       
             //recieved input value
-	$userId=$_POST['userId']; 
-	$userName=$_POST['userName'];
+	$candidateId=$_POST['candidateId']; 
+	$candidateName=$_POST['candidateName'];
 
-	$userPassword=$_POST['userPassword'];
-	$userPhoneNumber=$_POST['userPhoneNumber'];
-    $userEmail=$_POST['userEmail'];
-    $userApproved = 0;
+	$candidatePassword=$_POST['candidatePassword'];
+	$candidatePhoneNumber=$_POST['candidatePhoneNumber'];
+    $candidateEmail=$_POST['candidateEmail'];
+   
 
-	$sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword','$userApproved')";
-	//echo $sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
-
+	$sql="insert into candidate values('$candidateId','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+	 echo $sql="insert into candidate values('$candidateId','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
     $result = $conn->query($sql);
             echo '
             <!DOCTYPE html>
@@ -73,6 +69,8 @@ if(isset($_POST['insert'])){
         }
          
 }
+
+
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -87,53 +85,53 @@ if(isset($_POST['insert'])){
 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
 <h3>Welcome</h3>
 <p>Register now to view more details</p>
-<input type="submit" name="" href="login.php" value="Login"/><br/>
+<a href="login.php">  <input type="submit" name=""  value="Login"/></a><br/>
 </div>
 
 <div class="col-md-9 register-right">
 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 <li class="nav-item">
-<a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">User</a>
+<a class="nav-link " id="home-tab" data-toggle="tab" href="userRegistration.php" role="tab" aria-controls="home" aria-selected="true">User</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="profile-tab" data-toggle="tab" href="candidateRegistration.php" role="tab" aria-controls="profile" aria-selected="false">Candidate</a>
+<a class="nav-link active" id="profile-tab" data-toggle="tab" href="#" role="tab" aria-controls="profile" aria-selected="false">Candidate</a>
 </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-<h3 class="register-heading">Apply as a User</h3>
+<h3 class="register-heading">Apply as a Candiate</h3>
 
-<form name="userRegistration" action="userRegistration.php" method="POST" style = " bg-secondary;">
+<form name="userRegistration" action="candidateRegistration.php" method="POST" style = " bg-secondary;">
 <div class="row register-form">
 
 <div class="col-md-6">
 	<div 
 	class="form-group">
 	
-		<input name="userId" type="text" class="form-control" placeholder="User ID *" value="<?php 
+		<input name="candidateId" type="text" class="form-control" placeholder="Candidate ID *" value="<?php 
 			if(isset($_GET['id'])) { echo $id; } ?>" />
 	</div>
 
 	<div class="form-group">
-	<input name="userName" class="form-control" placeholder="Full name *" type="text"  value="<?php 
+	<input name="candidateName" class="form-control" placeholder="Full name *" type="text"  value="<?php 
 	if(isset($_GET['id'])) { echo $name; } ?>">
 	</div>
 
 	<div class="form-group">
-			<input name="userEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
+			<input name="candidateEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
 			if(isset($_GET['id'])) { echo $email; } ?>">
 	</div>
 </div>
 
 <div class="col-md-6">
 	<div class="form-group">
-	<input name="userPhoneNumber" class="form-control" placeholder="Your Phone *" type="text"  value="<?php 
+	<input name="candidatePhoneNumber" class="form-control" placeholder="Your Phone *" type="text"  value="<?php 
     if(isset($_GET['id'])) { echo $contactNo; } ?>">
 	</div>
 
 	<div class="form-group">
-	<input name="userPassword" class="form-control" placeholder="Password *" type="password">
+	<input name="candidatePassword" class="form-control" placeholder="Password *" type="password">
 	</div>
 
 	

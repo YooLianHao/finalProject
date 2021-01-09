@@ -1,4 +1,51 @@
+<?php
+$servername = "localhost";  //localost for local PC or use IP
+$username = "root";
+$password = "";
+$database = "e_voting";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_POST['login'])){
+  $username = mysqli_real_escape_string($conn,$_POST['username']);
+  $password = mysqli_real_escape_string($conn,$_POST['password']);
+  
+  if($username !="" && $password !=""){
+      $sql = "select * from user where name='$username' and password='$password'";
+      $result = mysqli_query($conn,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+      $count = mysqli_num_rows($result);
+      if($count == 1){
+        
+        //('') after login show the login page
+          echo "<script>window.location.assign('userHome.php');</script>";
+
+      }else{
+      
+        echo '
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <script>
+        alert("Login Fail");
+        </script>
+        </head>
+        <body>
+        
+        </body>
+        </html>';
+         
+      }
+  }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +65,7 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -26,23 +74,20 @@
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
+    <div class="card-body login-card-body ">
       <p class="login-box-msg">Sign in to start your session</p>
       <!--/.login form -->
-      <form action="controller/loginProcess.php" method="post">
-      <?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
+      <form action="login.php" method="POST">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="pass"placeholder="Password">
+          <input type="password" class="form-control" name="password"placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -59,9 +104,19 @@
             </div>
           </div>
           <!-- /.col -->
+
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" name = "submit" id="">Sign In</button>
+
+          <?php
+		if(isset($_GET['id'])){
+			echo "";
+		}else{
+			echo '<button type="submit" class="btn btn-primary
+			 btn-block" name ="login"> Sign In </buton>';
+		}	
+	      ?>  
           </div>
+
           <!-- /.col -->
         </div>
       </form>
@@ -84,7 +139,7 @@
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src=/dist/js/adminlte.min.js"></script>
+<script src=/dist/js/adminlte.min.js></script>
 
 </body>
 </html>
