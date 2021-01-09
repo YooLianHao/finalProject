@@ -1,6 +1,13 @@
 <?php
-   define('DB_SERVER', 'localhost:3036');
-   define('DB_USERNAME', 'root');
-   define('DB_PASSWORD', '');
-   define('DB_DATABASE', 'e-voting');
-?>
+ $servername = "localhost";  //localost for local PC or use IP
+ $username = "root";
+ $password = "";
+ $database = "e_voting";
+ 
+ // Create connection
+ $conn = new mysqli($servername, $username, $password,$database);
+ 
+ // Check connection
+ if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+ }
