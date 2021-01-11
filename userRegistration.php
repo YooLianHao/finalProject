@@ -15,13 +15,11 @@ if ($conn->connect_error) {
 //if user click create button
 if(isset($_POST['insert'])){  
 
-	$id = mysqli_real_escape_string($conn,$_POST['userId']);
+	
 	$name = mysqli_real_escape_string($conn,$_POST['userName']);
-	$contactNo = mysqli_real_escape_string($conn,$_POST['userPhoneNumber']);
-	$email = mysqli_real_escape_string($conn,$_POST['userEmail']);
     $password = mysqli_real_escape_string($conn,$_POST['userPassword']);
     
-    if($id !="" && $name !="" && $contactNo !="" && $email !="" &&  $password !=""){
+    if($name !=""&&  $password !=""){
         $sql = "select * from user where name='$name' and password='$password'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -45,15 +43,16 @@ if(isset($_POST['insert'])){
       
             //recieved input value
 	$userId=$_POST['userId']; 
+	$userImage=$_POST['userImage'];	
 	$userName=$_POST['userName'];
-
 	$userPassword=$_POST['userPassword'];
 	$userPhoneNumber=$_POST['userPhoneNumber'];
     $userEmail=$_POST['userEmail'];
     $userApproved = 0;
 
-	$sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword','$userApproved')";
-	//echo $sql="insert into user values('$userId','$userName','$userPhoneNumber','$userEmail','$userPassword')";
+	$sql="insert into user values('$userId','$userImage','$userName','$userPhoneNumber','$userEmail','$userPassword','$userApproved')";
+
+	echo $sql="insert into user values('$userId','$userImage','$userName','$userPhoneNumber','$userEmail','$userPassword'.'$userApproved')";
 
     $result = $conn->query($sql);
             echo '
@@ -76,7 +75,7 @@ if(isset($_POST['insert'])){
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="UserCandidateRegister.css" />
+<link rel="stylesheet" href="userCandidateRegister.css" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -126,6 +125,13 @@ if(isset($_POST['insert'])){
 			<input name="userEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
 			if(isset($_GET['id'])) { echo $email; } ?>">
 	</div>
+
+	<div class="form-group">
+	        <input type='file' name='userImage' value="<?php 
+			if(isset($_GET['id'])) { echo $image; } ?>" />
+  
+  </div>
+
 </div>
 
 <div class="col-md-6">
@@ -159,6 +165,3 @@ if(isset($_POST['insert'])){
 </div>
 </div>
 </div>
-
-
-	

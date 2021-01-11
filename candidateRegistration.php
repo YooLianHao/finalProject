@@ -42,15 +42,17 @@ if(isset($_POST['insert'])){
       
             //recieved input value
 	$candidateId=$_POST['candidateId']; 
-	$candidateName=$_POST['candidateName'];
-
+	$candidateImage=$_POST['candidateImage'];	
+	$candidateName=$_POST['candidateName'];		
 	$candidatePassword=$_POST['candidatePassword'];
 	$candidatePhoneNumber=$_POST['candidatePhoneNumber'];
     $candidateEmail=$_POST['candidateEmail'];
    
 
-	$sql="insert into candidate values('$candidateId','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
-	 echo $sql="insert into candidate values('$candidateId','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+	$sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+	
+	 //echo $sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+
     $result = $conn->query($sql);
             echo '
             <!DOCTYPE html>
@@ -74,7 +76,7 @@ if(isset($_POST['insert'])){
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="UserCandidateRegister.css" />
+<link rel="stylesheet" href="userCandidateRegister.css" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -124,6 +126,13 @@ if(isset($_POST['insert'])){
 			<input name="candidateEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
 			if(isset($_GET['id'])) { echo $email; } ?>">
 	</div>
+
+	<div class="form-group">
+	        <input type='file' name='candidateImage' value="<?php 
+			if(isset($_GET['id'])) { echo $image; } ?>" />
+  
+  </div>
+
 </div>
 
 <div class="col-md-6">
