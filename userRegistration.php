@@ -75,7 +75,11 @@ if(isset($_POST['insert'])){
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<<<<<<< HEAD
+<link rel="stylesheet" href="main.css" />
+=======
 <link rel="stylesheet" href="userCandidateRegister.css" />
+>>>>>>> upstream/main
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -86,9 +90,7 @@ if(isset($_POST['insert'])){
 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
 <h3>Welcome</h3>
 <p>Register now to view more details</p>
-
-<a href="login.php"><input type="submit" name="login.php" value="Login"/></input></a><br/>
-
+<input type="submit" name="" href="login.php" value="Login"/><br/>
 </div>
 
 <div class="col-md-9 register-right">
@@ -164,4 +166,8 @@ if(isset($_POST['insert'])){
 	</form>
 </div>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> upstream/main
