@@ -1,5 +1,6 @@
 <?php include 'model/head.php' ?>
 <?php include 'model/session.php'; ?>
+<?php include 'model/slugify.php'; ?>
 <body>
 <!-- Navbar -->
 <?php include 'model/admin_appbar.php' ?><br>
@@ -17,147 +18,234 @@
   
     <!-- Main content -->
     <br>
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text"></span>
-                <span class="info-box-number">
-                  
-                  <small></small>
-                </span>
-              </div>
-              <!-- /.info-box-content -->
+    
+     <!-- Main content -->
+     <section class="content">
+     <br>
+      <?php
+        if(isset($_SESSION['error'])){
+          echo "
+            <div class='alert alert-danger alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-warning'></i> Error!</h4>
+              ".$_SESSION['error']."
             </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text"></span>
-                <span class="info-box-number"></span>
-              </div>
-              <!-- /.info-box-content -->
+          ";
+          unset($_SESSION['error']);
+        }
+        if(isset($_SESSION['success'])){
+          echo "
+            <div class='alert alert-success alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-check'></i> Success!</h4>
+              ".$_SESSION['success']."
             </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-poll"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text"></span>
-                <span class="info-box-number"></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text"> </span>
-                <span class="info-box-number"></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-              <div class="col-md-6">
-                <!-- USERS LIST -->
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Users</h3>
-                    <div class="card-tools">
-                      <span class="badge badge-danger"></span>
-                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                      </button>
-                      <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body p-0">
-                    <ul class="users-list clearfix">
-                      <li>
-                        <img src="" alt="User Image">
-                        <a class="users-list-name" href="#" name="users"> </a>
-                        <span class="users-list-date">Today</span>
-                      </li>
-                    </ul>
-                    <!-- /.users-list -->
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer text-center">
-                    <a href="javascript::">View All Users</a>
-                  </div>
-                  <!-- /.card-footer -->
-                </div>
-                <!--/.card -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
-             <!-- 
-               this one is the recenly add events
-              -->
-             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Recently Pool</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <ul class="products-list product-list-in-card pl-2 pr-2">
-                  <li class="item">
-                    <div class="">
-                      <img src="" alt="" class="img-size-50">
-                    </div>
-                    <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">
-                        <span class="badge badge-warning float-right"></span></a>
-                      <span class="product-description">
-                        
-                      </span>
-                    </div>
-                  </li>
-              <!-- /.card-body -->
-              <div class="card-footer text-center">
-                <a href="javascript:void(0)" class="uppercase">View Election Events</a>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
-    <!-- /.content -->
-    <?php include 'model/footer.php' ?>
-                            </section>
-                            <?php include 'model/scripts.php'; ?>
-  </div>
+          ";
+          unset($_SESSION['success']);
+        }
+      ?>
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <?php
+                $sql = "SELECT * FROM positions";
+                $query = $conn->query($sql);
 
+                echo "<h3>".$query->num_rows."</h3>";
+              ?>
+
+              <p>No. of Positions</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-tasks"></i>
+            </div>
+            <a href="position.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <?php
+                $sql = "SELECT * FROM candidates";
+                $query = $conn->query($sql);
+
+                echo "<h3>".$query->num_rows."</h3>";
+              ?>
+          
+              <p>No. of Candidates</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-black-tie"></i>
+            </div>
+            <a href="candidate.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <?php
+                $sql = "SELECT * FROM voters";
+                $query = $conn->query($sql);
+
+                echo "<h3>".$query->num_rows."</h3>";
+              ?>
+             
+              <p>Total Voters</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-users"></i>
+            </div>
+            <a href="viewUsers.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <?php
+                $sql = "SELECT * FROM votes GROUP BY voters_id";
+                $query = $conn->query($sql);
+
+                echo "<h3>".$query->num_rows."</h3>";
+              ?>
+
+              <p>Voters Voted</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-edit"></i>
+            </div>
+            <a href="votes.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Votes Tally
+            <span class="pull-right">
+              <a href="print.php" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-print"></span> Print</a>
+            </span>
+          </h3>
+        </div>
+      </div>
+
+      <?php
+        $sql = "SELECT * FROM positions ORDER BY priority ASC";
+        $query = $conn->query($sql);
+        $inc = 2;
+        while($row = $query->fetch_assoc()){
+          $inc = ($inc == 2) ? 1 : $inc+1; 
+          if($inc == 1) echo "<div class='row'>";
+          echo "
+            <div class='col-sm-6'>
+              <div class='box box-solid'>
+                <div class='box-header with-border'>
+                  <h4 class='box-title'><b>".$row['description']."</b></h4>
+                </div>
+                <div class='box-body'>
+                  <div class='chart'>
+                    <canvas id='".slugify($row['description'])."' style='height:200px'></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ";
+          if($inc == 2) echo "</div>";  
+        }
+        if($inc == 1) echo "<div class='col-sm-6'></div></div>";
+      ?>
+
+      </section>
+      <!-- right col -->
+    </div>
+  	<?php include 'model/footer.php'; ?>
+
+</div>
+<!-- ./wrapper -->
+
+<?php include 'model/scripts.php'; ?>
+<?php
+  $sql = "SELECT * FROM positions ORDER BY priority ASC";
+  $query = $conn->query($sql);
+  while($row = $query->fetch_assoc()){
+    $sql = "SELECT * FROM candidates WHERE position_id = '".$row['id']."'";
+    $cquery = $conn->query($sql);
+    $carray = array();
+    $varray = array();
+    while($crow = $cquery->fetch_assoc()){
+      array_push($carray, $crow['lastname']);
+      $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
+      $vquery = $conn->query($sql);
+      array_push($varray, $vquery->num_rows);
+    }
+    $carray = json_encode($carray);
+    $varray = json_encode($varray);
+    ?>
+    <script>
+    $(function(){
+      var rowid = '<?php echo $row['id']; ?>';
+      var description = '<?php echo slugify($row['description']); ?>';
+      var barChartCanvas = $('#'+description).get(0).getContext('2d')
+      var barChart = new Chart(barChartCanvas)
+      var barChartData = {
+        labels  : <?php echo $carray; ?>,
+        datasets: [
+          {
+            label               : 'Votes',
+            fillColor           : 'rgba(60,141,188,0.9)',
+            strokeColor         : 'rgba(60,141,188,0.8)',
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : <?php echo $varray; ?>
+          }
+        ]
+      }
+      var barChartOptions                  = {
+        //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+        scaleBeginAtZero        : true,
+        //Boolean - Whether grid lines are shown across the chart
+        scaleShowGridLines      : true,
+        //String - Colour of the grid lines
+        scaleGridLineColor      : 'rgba(0,0,0,.05)',
+        //Number - Width of the grid lines
+        scaleGridLineWidth      : 1,
+        //Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowHorizontalLines: true,
+        //Boolean - Whether to show vertical lines (except Y axis)
+        scaleShowVerticalLines  : true,
+        //Boolean - If there is a stroke on each bar
+        barShowStroke           : true,
+        //Number - Pixel width of the bar stroke
+        barStrokeWidth          : 2,
+        //Number - Spacing between each of the X value sets
+        barValueSpacing         : 5,
+        //Number - Spacing between data sets within X values
+        barDatasetSpacing       : 1,
+        //String - A legend template
+        legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+        //Boolean - whether to make the chart responsive
+        responsive              : true,
+        maintainAspectRatio     : true
+      }
+
+      barChartOptions.datasetFill = false
+      var myChart = barChart.HorizontalBar(barChartData, barChartOptions)
+      //document.getElementById('legend_'+rowid).innerHTML = myChart.generateLegend();
+    });
+    </script>
+    <?php
+  }
+?>
 </body>
 </html>

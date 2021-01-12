@@ -13,14 +13,14 @@
   <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../plugins/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- daterange picker -->
-    <link rel="stylesheet" href="../bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../plugins/bootstrap-daterangepicker/daterangepicker.css">
     <!-- Bootstrap time Picker -->
     <link rel="stylesheet" href="../plugins/timepicker/bootstrap-timepicker.min.css">
     <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Bootstrap4 Duallistbox -->
     <!-- Select2 -->
     <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">

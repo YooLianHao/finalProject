@@ -1,4 +1,4 @@
-<?php include 'model/head.php' ?>
+<?php include 'model/head.php'; ?>
 <?php include 'model/session.php'; ?>
 <body>
 <!-- Navbar -->
