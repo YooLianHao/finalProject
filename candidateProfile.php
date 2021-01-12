@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> Welcome <small> <!--name of user--> Lorenzo </small></h1>
+            <h1 class="m-0 text-dark"> Welcome <small></small></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -87,67 +87,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
-      <div class="container">
-        <div class="row">
-        <div class="col-lg-6">
+ <div class="content">
+    <div class="container">
+    <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title m-0">View Election</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">View Election Here </h6>
+                <h3 class="card-title">Candidate</h3>
 
-                <p class="card-text">Election</p>
-                <a href="#" class="btn btn-primary">Click Here For More.</a>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>View For More</th>
+                     
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>183</td>
+                      <td>John Doe</td>
+                      <td>President</td>
+                      <td><a href="">Click Here</a></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
-
-            <div class="card card-primary card-outline">
-            <div class="card-header">
-                <h5 class="card-title m-0">View Candidate</h5>
-              </div>
-              <div class="card-body">
-              <h6 class="card-title">View Candidate Here </h6>
-
-                <p class="card-text">candidate</p>   
-                <a href="candidateProfile.php" class="btn btn-primary">Click Here For More.</a>
-              </div>
-            </div><!-- /.card -->
+            <!-- /.card -->
           </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title m-0">Nominate Someone</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Nominate Anyone you want to Nominate </h6>
-
-                <p class="card-text">Nomated</p>
-                <a href="#" class="btn btn-primary">Click Here For More.</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-<<<<<<< HEAD
-                <h5 class="card-title m-0">Support Community </h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Support</h6>
-
-                <p class="card-text">community </p>
-=======
-                <h5 class="card-title m-0">View Elections</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Poll Events</h6>
-
-                <p class="card-text">Elections</p>
->>>>>>> upstream/main
-                <a href="#" class="btn btn-primary">Check Here For More.</a>
-              </div>
+          </div>
             </div>
           </div>
           <!-- /.col-md-6 -->
