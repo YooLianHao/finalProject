@@ -15,6 +15,10 @@
 		$_SESSION['error'] = 'Select item to delete first';
 	}
 
+<<<<<<< HEAD
 	header('location: position.php');
+=======
+	header('location: position.php.php');
+>>>>>>> upstream/main
 	
 ?>

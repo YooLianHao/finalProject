@@ -1,7 +1,12 @@
 <?php include 'model/head.php' ?>
+<<<<<<< HEAD
 
 <?php include 'model/session.php';?>
 <?php include 'model/slugfiy.php';?>
+=======
+<?php include 'model/session.php'; ?>
+<?php include 'model/slugify.php'; ?>
+>>>>>>> upstream/main
 <body>
 <!-- Navbar -->
 <?php include 'model/admin_appbar.php' ?><br>
@@ -129,6 +134,19 @@
         <!-- ./col -->
       </div>
 
+<<<<<<< HEAD
+=======
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Votes Tally
+            <span class="pull-right">
+              <a href="print.php" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-print"></span> Print</a>
+            </span>
+          </h3>
+        </div>
+      </div>
+
+>>>>>>> upstream/main
       <?php
         $sql = "SELECT * FROM positions ORDER BY priority ASC";
         $query = $conn->query($sql);
@@ -138,8 +156,13 @@
           if($inc == 1) echo "<div class='row'>";
           echo "
             <div class='col-sm-6'>
+<<<<<<< HEAD
               <div class='card card-primary card-outline'>
                 <div class='card-header'>
+=======
+              <div class='box box-solid'>
+                <div class='box-header with-border'>
+>>>>>>> upstream/main
                   <h4 class='box-title'><b>".$row['description']."</b></h4>
                 </div>
                 <div class='box-body'>
@@ -155,9 +178,13 @@
         if($inc == 1) echo "<div class='col-sm-6'></div></div>";
       ?>
 
+<<<<<<< HEAD
      
 
 </section>
+=======
+      </section>
+>>>>>>> upstream/main
       <!-- right col -->
     </div>
   	<?php include 'model/footer.php'; ?>
@@ -234,11 +261,19 @@
 
       barChartOptions.datasetFill = false
       var myChart = barChart.HorizontalBar(barChartData, barChartOptions)
+<<<<<<< HEAD
       document.getElementById('legend_'+rowid).innerHTML = myChart.generateLegend();
+=======
+      //document.getElementById('legend_'+rowid).innerHTML = myChart.generateLegend();
+>>>>>>> upstream/main
     });
     </script>
     <?php
   }
 ?>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> upstream/main

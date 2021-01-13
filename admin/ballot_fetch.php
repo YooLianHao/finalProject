@@ -1,6 +1,10 @@
 <?php
 	include 'model/session.php';
+<<<<<<< HEAD
 	include 'model/slugfiy.php';
+=======
+	include 'model/slugify.php';
+>>>>>>> upstream/main
 
 	$sql = "SELECT * FROM positions";
 	$pquery = $conn->query($sql);
@@ -30,8 +34,13 @@
 		$updisable = ($row['priority'] == 1) ? 'disabled' : '';
 		$downdisable = ($row['priority'] == $pquery->num_rows) ? 'disabled' : '';
 
+<<<<<<< HEAD
 		$output .= '<br>
 			<div class="card">
+=======
+		$output .= '
+			<div class="row">
+>>>>>>> upstream/main
 				<div class="col-xs-12">
 					<div class="box box-solid" id="'.$row['id'].'">
 						<div class="box-header with-border">

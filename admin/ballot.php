@@ -10,6 +10,7 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+<<<<<<< HEAD
   <br>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -19,6 +20,12 @@
       </h1>
       </section>
     <!-- Main content -->
+=======
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+ 
+>>>>>>> upstream/main
     <!-- Main content -->
     <section class="content">
       <?php
@@ -44,9 +51,13 @@
         }
       ?>
 
+<<<<<<< HEAD
       <div class="row" style=" margin: auto;
   width: 50%;
   padding: 10px;">
+=======
+<div class="row">
+>>>>>>> upstream/main
         <div class="col-xs-10 col-xs-offset-1" id="content">
         </div>
       </div>
