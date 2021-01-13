@@ -41,6 +41,9 @@ if(isset($_POST['insert'])){
       
             //recieved input value
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> upstream/main
     $candidateId=$_POST['candidateId']; 
     $candidatePositionId=$_POST['candidatePositionId']; 
     $candidateFirstName=$_POST['candidateFirstName'];	
@@ -51,6 +54,8 @@ if(isset($_POST['insert'])){
   $sql="insert into candidates values('$candidateId','$candidatePositionId','$candidateFirstName','$candidateLastName','$candidatePhoto','$candidatePlatform')";
   
   // $sql = "insert into candidate (position) values ('$candidatePosition')"; 
+<<<<<<< HEAD
+=======
 	
    //echo  $sql="insert into candidates values('$candidateId','$candidatePositionId','$candidateFirstName','$candidateLastName','$candidatePhoto','$candidatePlatform')";
   
@@ -68,8 +73,12 @@ if(isset($_POST['insert'])){
 <<<<<<< HEAD
 =======
 	$sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+>>>>>>> upstream/main
 	
-	 //echo $sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
+   //echo  $sql="insert into candidates values('$candidateId','$candidatePositionId','$candidateFirstName','$candidateLastName','$candidatePhoto','$candidatePlatform')";
+  
+   
+   //,'$candidatePosition'
 
 >>>>>>> upstream/main
     $result = $conn->query($sql);
@@ -145,10 +154,29 @@ if(isset($_POST['insert'])){
         </select> 
     </div>
     
+<<<<<<< HEAD
+=======
 
 	<div class="form-group">
 	    <input name="candidatePositionId" class="form-control" placeholder="Position Id *" type="text"  value="<?php 
         if(isset($_GET['id'])) { echo $positionid; } ?>">
+	</div>
+>>>>>>> upstream/main
+
+	
+
+	<div class="form-group">
+<<<<<<< HEAD
+	    <input name="candidatePositionId" class="form-control" placeholder="Position Id *" type="text"  value="<?php 
+        if(isset($_GET['id'])) { echo $positionid; } ?>">
+=======
+<<<<<<< HEAD
+			<a>Image</a>
+	        <input type='file' name='candidatePhoto' value="<?php 
+=======
+			<input name="candidateEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
+			if(isset($_GET['id'])) { echo $email; } ?>">
+>>>>>>> upstream/main
 	</div>
 
 	
@@ -158,12 +186,8 @@ if(isset($_POST['insert'])){
 			<a>Image</a>
 	        <input type='file' name='candidatePhoto' value="<?php 
 =======
-			<input name="candidateEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
-			if(isset($_GET['id'])) { echo $email; } ?>">
-	</div>
-
-	<div class="form-group">
 	        <input type='file' name='candidateImage' value="<?php 
+>>>>>>> upstream/main
 >>>>>>> upstream/main
 			if(isset($_GET['id'])) { echo $image; } ?>" />
   

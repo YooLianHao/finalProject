@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> upstream/main
 <?php
   	session_start();
   	if(isset($_SESSION['admin'])){
@@ -28,6 +31,8 @@
           <div class="form-group has-feedback">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+<<<<<<< HEAD
+=======
           </div>
       		<div class="row">
     			<div class="col-xs-4">
@@ -204,46 +209,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
+>>>>>>> upstream/main
           </div>
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Options</h5>
-      <p>Etc</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2021 <a href="">Suc</a>.</strong> All rights reserved.
-  </footer>
+      		<div class="row">
+    			<div class="col-xs-4">
+          			<button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Sign In</button>
+        		</div>
+      		</div>
+    	</form>
+  	</div>
+  	<?php
+  		if(isset($_SESSION['error'])){
+  			echo "
+  				<div class='callout callout-danger text-center mt20'>
+			  		<p>".$_SESSION['error']."</p> 
+			  	</div>
+  			";
+  			unset($_SESSION['error']);
+  		}
+  	?>
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+	
+<?php include 'includes/scripts.php' ?>
 </body>
+<<<<<<< HEAD
+
+<footer>
+</div>
 </html>
+=======
+</html>
+>>>>>>> upstream/main
 >>>>>>> upstream/main
