@@ -40,7 +40,6 @@ if(isset($_POST['insert'])){
         }else{
       
             //recieved input value
-<<<<<<< HEAD
     $candidateId=$_POST['candidateId']; 
     $candidatePositionId=$_POST['candidatePositionId']; 
     $candidateFirstName=$_POST['candidateFirstName'];	
@@ -54,24 +53,9 @@ if(isset($_POST['insert'])){
 	
    //echo  $sql="insert into candidates values('$candidateId','$candidatePositionId','$candidateFirstName','$candidateLastName','$candidatePhoto','$candidatePlatform')";
   
-=======
-	$candidateId=$_POST['candidateId']; 
-	$candidateImage=$_POST['candidateImage'];	
-	$candidateName=$_POST['candidateName'];		
-	$candidatePassword=$_POST['candidatePassword'];
-	$candidatePhoneNumber=$_POST['candidatePhoneNumber'];
-    $candidateEmail=$_POST['candidateEmail'];
->>>>>>> upstream/main
    
    //,'$candidatePosition'
 
-<<<<<<< HEAD
-=======
-	$sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
-	
-	 //echo $sql="insert into candidate values('$candidateId','$candidateImage','$candidateName','$candidatePhoneNumber','$candidateEmail','$candidatePassword')";
-
->>>>>>> upstream/main
     $result = $conn->query($sql);
             echo '
             <!DOCTYPE html>
@@ -154,17 +138,8 @@ if(isset($_POST['insert'])){
 	
 
 	<div class="form-group">
-<<<<<<< HEAD
 			<a>Image</a>
 	        <input type='file' name='candidatePhoto' value="<?php 
-=======
-			<input name="candidateEmail" class="form-control" placeholder="Your Email *" type="email"  value="<?php 
-			if(isset($_GET['id'])) { echo $email; } ?>">
-	</div>
-
-	<div class="form-group">
-	        <input type='file' name='candidateImage' value="<?php 
->>>>>>> upstream/main
 			if(isset($_GET['id'])) { echo $image; } ?>" />
   
   </div>

@@ -10,10 +10,15 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+  <br>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
- 
+    <section class="content-header">
+    <h1>
+        Candidate Position
+      </h1>
+      </section>
+    <!-- Main content -->
     <!-- Main content -->
     <section class="content">
       <?php
@@ -39,7 +44,9 @@
         }
       ?>
 
-<div class="row">
+      <div class="row" style=" margin: auto;
+  width: 50%;
+  padding: 10px;">
         <div class="col-xs-10 col-xs-offset-1" id="content">
         </div>
       </div>

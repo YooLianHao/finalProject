@@ -131,21 +131,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="card card-primary card-outline">
               <div class="card-header">
-<<<<<<< HEAD
                 <h5 class="card-title m-0">Support Community </h5>
               </div>
               <div class="card-body">
                 <h6 class="card-title">Support</h6>
 
                 <p class="card-text">community </p>
-=======
-                <h5 class="card-title m-0">View Elections</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Poll Events</h6>
-
-                <p class="card-text">Elections</p>
->>>>>>> upstream/main
                 <a href="#" class="btn btn-primary">Check Here For More.</a>
               </div>
             </div>
